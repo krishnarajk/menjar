@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.example.krishnaraj.menjar.ContactActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/content_contact" />
+
+    <ImageButton
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:srcCompat="@drawable/call"
+        android:id="@+id/callchef"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="50dp"/>
+
+    <TextView
+        android:text="Chef"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:layout_marginTop="220dp"
+        android:layout_marginLeft="150dp"
+        android:textSize="25dp"
+        android:textColor="@color/colorPrimaryDark"/>
+    <ImageButton
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:srcCompat="@drawable/call"
+        android:id="@+id/callmanager"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="50dp"/>
+
+    <TextView
+        android:text="Manager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:layout_marginTop="320dp"
+        android:layout_marginLeft="150dp"
+        android:textSize="25dp"
+        android:textColor="@color/colorPrimaryDark"/>
+
+</android.support.design.widget.CoordinatorLayout>
