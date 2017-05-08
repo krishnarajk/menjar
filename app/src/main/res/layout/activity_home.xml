@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <ViewFlipper
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/homeimage"
+        android:autoStart="true"
+        android:flipInterval="3000">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="161dp"
+            android:layout_marginTop="70dp"
+            android:src="@drawable/snacks"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="161dp"
+            android:src="@drawable/nonveg"
+            android:layout_marginTop="70dp"
+            android:id="@+id/imageView3" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="161dp"
+            android:src="@drawable/veg"
+            android:layout_marginTop="70dp"
+            android:id="@+id/imageView4" />
+    </ViewFlipper>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="9 am to 11 pm"
+        android:layout_marginTop="240dp"
+        android:layout_marginLeft="95dp"
+        android:gravity="center"
+        android:textSize="30dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="Established on 2000. 17 years of Experiance. Awarded the best hotel in the Trivandrum.abc add fdf  dffdsf"
+        android:layout_marginTop="300dp"
+        android:textSize="20dp"
+        android:textColor="#356"/>
+
+
+</RelativeLayout>
