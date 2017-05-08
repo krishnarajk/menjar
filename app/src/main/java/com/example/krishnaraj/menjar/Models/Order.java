@@ -11,5 +11,6 @@ public class Order
     public int tableId;
     public String comments;
     public float amount;
+    public float amountTotal;
     public ArrayList<OrderItem> items = new ArrayList<>();
 }

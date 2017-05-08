@@ -2,6 +2,7 @@ package com.example.krishnaraj.menjar.Utlis;
 
 import com.example.krishnaraj.menjar.Models.Catalog;
 import com.example.krishnaraj.menjar.Models.Order;
+import com.example.krishnaraj.menjar.Models.Table;
 
 import java.util.List;
 
@@ -20,5 +21,8 @@ public interface RestApiInterface {
 
     @POST("/order")
     Call<Order>order(@Body Order order);
+
+    @POST("/table/login")
+    Call<Table>login(@Body Table table);
 
 }

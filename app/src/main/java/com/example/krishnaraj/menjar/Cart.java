@@ -52,6 +52,7 @@ public class Cart extends AppCompatActivity {
                 });
                 Toast.makeText(Cart.this,"Order placed successfully",Toast.LENGTH_LONG).show();
                 Log.i("price", String.valueOf(Global.order.amount));
+                Global.order.amount=0;
             }
         });
     }

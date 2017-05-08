@@ -34,8 +34,10 @@ public class Description extends AppCompatActivity {
                 quantity= Integer.parseInt(quant.getText().toString());
                 Global.order.items.add(new OrderItem(catalog.id,quantity));
                 Global.order.amount+=catalog.price*quantity;
+                Global.order.amountTotal+=catalog.price*quantity;
                 startActivity(new Intent(Description.this,Cart.class));
                 Log.i("ab", String.valueOf(Global.order.amount));
+                Log.i("abc",String.valueOf(Global.order.amountTotal));
                 for(int i=0;i<Global.order.items.size();i++){
                     Log.i("abc", String.valueOf(Global.order.items.get(i)));
                 }
