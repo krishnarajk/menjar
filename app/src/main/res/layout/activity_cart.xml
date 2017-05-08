@@ -20,16 +20,16 @@
         android:layout_marginLeft="35dp"
         android:layout_marginStart="35dp"
         android:layout_marginBottom="99dp"
-        android:id="@+id/button" />
+        android:id="@+id/additem" />
 
     <Button
         android:text="Confirm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button"
-        android:layout_toRightOf="@+id/button"
-        android:layout_toEndOf="@+id/button"
-        android:layout_marginLeft="61dp"
-        android:layout_marginStart="61dp"
-        android:id="@+id/button2" />
+        android:id="@+id/confirm"
+        android:layout_marginRight="49dp"
+        android:layout_marginEnd="49dp"
+        android:layout_alignTop="@+id/additem"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

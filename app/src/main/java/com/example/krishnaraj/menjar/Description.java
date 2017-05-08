@@ -36,6 +36,9 @@ public class Description extends AppCompatActivity {
                 Global.order.amount+=catalog.price*quantity;
                 startActivity(new Intent(Description.this,Cart.class));
                 Log.i("ab", String.valueOf(Global.order.amount));
+                for(int i=0;i<Global.order.items.size();i++){
+                    Log.i("abc", String.valueOf(Global.order.items.get(i)));
+                }
             }
         });
     }
