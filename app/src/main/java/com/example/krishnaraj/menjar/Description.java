@@ -32,9 +32,10 @@ public class Description extends AppCompatActivity {
             public void onClick(View view) {
                 EditText quant = (EditText) findViewById(R.id.quantity);
                 quantity= Integer.parseInt(quant.getText().toString());
-                Global.order.items.add(new OrderItem(catalog.id,quantity));
+                Global.order.items.add(new OrderItem(catalog.id,quantity,catalog.name,catalog.price));
                 Global.order.amount+=catalog.price*quantity;
                 Global.order.amountTotal+=catalog.price*quantity;
+                Global.order.tableId = Global.tableId;
                 startActivity(new Intent(Description.this,Cart.class));
                 Log.i("ab", String.valueOf(Global.order.amount));
                 Log.i("abc",String.valueOf(Global.order.amountTotal));

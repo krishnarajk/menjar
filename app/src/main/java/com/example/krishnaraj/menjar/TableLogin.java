@@ -42,6 +42,8 @@ public class TableLogin extends AppCompatActivity {
                     public void onResponse(Call<Table> call, Response<Table> response) {
                         if(response.isSuccessful()){
                             Toast.makeText(TableLogin.this,"Login Successful",Toast.LENGTH_LONG).show();
+                            Global.tableId= Integer.parseInt(name);
+                            Log.i("tid", String.valueOf(Global.tableId));
                             startActivity(new Intent(TableLogin.this,MainActivity.class));
                         }
                         else{
