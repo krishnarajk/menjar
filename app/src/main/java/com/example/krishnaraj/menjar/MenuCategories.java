@@ -1,5 +1,6 @@
 package com.example.krishnaraj.menjar;
 
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -59,6 +60,13 @@ public class MenuCategories extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
 
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabcart);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MenuCategories.this,Cart.class));
+            }
+        });
         ApiClient.getClient().getCatalogs().enqueue(new Callback< List< Catalog>>(){
 
             @Override

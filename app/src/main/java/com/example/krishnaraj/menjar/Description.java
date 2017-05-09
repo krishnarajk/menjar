@@ -25,7 +25,6 @@ public class Description extends AppCompatActivity {
         TextView description = (TextView) findViewById(R.id.description);
         description.setText(catalog.description);
         ImageView img = (ImageView) findViewById(R.id.foodimage);
-
         Button addtocart = (Button) findViewById(R.id.addtocart);
         addtocart.setOnClickListener(new View.OnClickListener() {
             @Override

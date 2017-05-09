@@ -1,6 +1,7 @@
 package com.example.krishnaraj.menjar;
 
 import android.content.Intent;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +22,7 @@ public class Cart extends AppCompatActivity {
     Button additem,confirm;
     ListView cartList;
     TextView subTotal;
+    TextInputEditText comment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +35,7 @@ public class Cart extends AppCompatActivity {
         cartList.setAdapter(cartAdapter);
         subTotal = (TextView) findViewById(R.id.subtotal);
         subTotal.setText(Global.order.amount+"");
+        comment = (TextInputEditText) findViewById(R.id.commentss);
         additem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,12 +45,13 @@ public class Cart extends AppCompatActivity {
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Global.order.comments = comment.getText().toString();
                 ApiClient.getClient().order(Global.order).enqueue(new Callback<Order>() {
                     @Override
                     public void onResponse(Call<Order> call, Response<Order> response) {
                         if(response.isSuccessful()){
                             Log.i("success","success");
-                            
+                            startActivity(new Intent(Cart.this,YourOrder.class));
                         }
                         else{
                             Log.i("Error","Error");

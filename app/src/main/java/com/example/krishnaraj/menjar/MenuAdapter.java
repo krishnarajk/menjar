@@ -6,9 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.krishnaraj.menjar.Models.Catalog;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -49,6 +51,8 @@ public class MenuAdapter extends BaseAdapter {
         name.setText(catalog.name);
         TextView price = (TextView) view.findViewById(R.id.price);
         price.setText(catalog.price+"");
+        ImageView img = (ImageView) view.findViewById(R.id.foodimage);
+        Picasso.with(context).load(Global.BASE_URL+catalog.image).fit().into(img);
         return view;
     }
 }
