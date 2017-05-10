@@ -23,9 +23,8 @@ public interface RestApiInterface {
     @POST("/order")
     Call<Order> order(@Body Order order);
 
-//    @POST("/item/recommended")
-    @GET("/item")
-    Call<List<Catalog>> getRecommendedItems(/*@Body Order order*/);
+    @POST("/item/order/recommended")
+    Call<List<Catalog>> getRecommendedItems(@Body Order order);
 
     @POST("/table/login")
     Call<Table> login(@Body Table table);

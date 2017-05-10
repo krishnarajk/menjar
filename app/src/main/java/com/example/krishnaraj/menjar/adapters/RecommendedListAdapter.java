@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.krishnaraj.menjar.Cart;
 import com.example.krishnaraj.menjar.Global;
 import com.example.krishnaraj.menjar.Models.Catalog;
 import com.example.krishnaraj.menjar.R;
@@ -43,7 +44,7 @@ public class RecommendedListAdapter extends RecyclerView.Adapter<RecommendedList
         Catalog catalog = items.get(position);
         holder.name.setText(catalog.name);
 //        holder.price.setText("₹" + catalog.price);
-        Picasso.with(context).load(Global.BASE_URL+catalog.image).fit().into(holder.image);
+        Picasso.with(context).load(Global.BASE_URL + catalog.image).fit().into(holder.image);
     }
 
     @Override
@@ -51,7 +52,7 @@ public class RecommendedListAdapter extends RecyclerView.Adapter<RecommendedList
         return items.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         ImageView image;
         TextView name;
@@ -61,6 +62,13 @@ public class RecommendedListAdapter extends RecyclerView.Adapter<RecommendedList
             image = (ImageView) itemView.findViewById(R.id.recomendsimage);
 //            price = (TextView) itemView.findViewById(R.id.price);
             name = (TextView) itemView.findViewById(R.id.itemName);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            Catalog item = items.get(getAdapterPosition());
+            ((Cart) context).onItemsAdded(item);
         }
     }
 

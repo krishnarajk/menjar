@@ -93,12 +93,12 @@ public class Cart extends AppCompatActivity implements CartAdapter.CartUpdateLis
         rvRecommends = (RecyclerView) findViewById(R.id.recomends);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         rvRecommends.setLayoutManager(layoutManager);
-        ApiClient.getClient().getRecommendedItems(/*Global.order*/).enqueue(new Callback<List<Catalog>>() {
+        ApiClient.getClient().getRecommendedItems(Global.order).enqueue(new Callback<List<Catalog>>() {
             @Override
             public void onResponse(Call<List<Catalog>> call, Response<List<Catalog>> response) {
                 if (response.isSuccessful()) {
                     List<Catalog> items = response.body();
-                    Log.i("recommended",items.toString());
+                    Log.i("recommended", items.toString());
                     RecommendedListAdapter adapter = new RecommendedListAdapter(Cart.this, items);
                     rvRecommends.setAdapter(adapter);
                 } else {
@@ -135,5 +135,11 @@ public class Cart extends AppCompatActivity implements CartAdapter.CartUpdateLis
             Global.order.amount += item.price * item.quantity;
         }
         subTotal.setText("₹" + Global.order.amount);
+    }
+
+    public void onItemsAdded(Catalog item) {
+        Global.order.items.add(new OrderItem(item.id, 1, item.name, item.price, item.image));
+        ((CartAdapter) cartList.getAdapter()).notifyDataSetChanged();
+        onCartUpdate();
     }
 }
