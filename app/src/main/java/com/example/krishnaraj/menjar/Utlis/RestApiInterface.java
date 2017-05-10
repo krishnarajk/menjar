@@ -18,13 +18,17 @@ import retrofit2.http.Path;
 
 public interface RestApiInterface {
     @GET("/item")
-    Call<List<Catalog>>getCatalogs();
+    Call<List<Catalog>> getCatalogs();
 
     @POST("/order")
-    Call<Order>order(@Body Order order);
+    Call<Order> order(@Body Order order);
+
+//    @POST("/item/recommended")
+    @GET("/item")
+    Call<List<Catalog>> getRecommendedItems(/*@Body Order order*/);
 
     @POST("/table/login")
-    Call<Table>login(@Body Table table);
+    Call<Table> login(@Body Table table);
 
     @GET("/order/{orderId}")
     Call<Order> getOrder(@Path("orderId") int orderId);

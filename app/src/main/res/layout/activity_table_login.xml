@@ -43,6 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Table Name"
+                android:singleLine="true"
                 android:gravity="center"/>
 
         </android.support.design.widget.TextInputLayout>
@@ -56,7 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Pin"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:gravity="center"
                 android:inputType="numberPassword"/>
 

@@ -4,23 +4,23 @@
     android:id="@+id/activity_cart"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="10"
     android:orientation="vertical"
+    android:weightSum="10"
     tools:context="com.example.krishnaraj.menjar.Cart">
 
     <ListView
+        android:id="@+id/cart"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="10"
-        android:id="@+id/cart"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"></ListView>
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_weight="10"></ListView>
 
     <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
         android:id="@+id/recomends"
-        android:layout_height="150dp">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     </android.support.v7.widget.RecyclerView>
 
@@ -28,26 +28,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5dp">
+
         <EditText
+            android:id="@+id/comments"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
             android:hint="Comments"
-            android:id="@+id/comments"/>
+            android:textSize="18sp" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="12dp"
         android:background="#eee"
+        android:padding="12dp"
         android:weightSum="5">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="18sp"
-            android:text="Total"/>
+            android:text="Total"
+            android:textSize="18sp" />
 
 
         <TextView
@@ -55,18 +57,18 @@
             android:layout_height="wrap_content"
             android:layout_weight="1.9"
             android:gravity="right"
-            android:textStyle="bold"
-            android:text="Rs"/>
+            android:text="Rs"
+            android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/subtotal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/cart"
             android:layout_weight="2.1"
             android:gravity="right"
-            android:text="10"
-            android:id="@+id/subtotal"
-            android:layout_below="@+id/cart"
-            android:layout_alignParentRight="true"/>
+            android:text="10" />
 
     </LinearLayout>
 
@@ -77,22 +79,22 @@
         android:weightSum="2">
 
         <Button
-            android:text="Add item"
-            android:background="@color/colorPrimary"
-            android:textColor="#fff"
+            android:id="@+id/additem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:id="@+id/additem" />
+            android:background="@color/colorPrimary"
+            android:text="Add item"
+            android:textColor="#fff" />
 
         <Button
-            android:text="Confirm"
+            android:id="@+id/confirm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/colorPrimaryDark"
-            android:textColor="#fff"
-            android:id="@+id/confirm"/>
+            android:text="Confirm"
+            android:textColor="#fff" />
 
     </LinearLayout>
 
