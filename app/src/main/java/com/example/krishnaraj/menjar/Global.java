@@ -9,7 +9,7 @@ import com.example.krishnaraj.menjar.Models.Order;
  */
 
     public class Global extends Application {
-        public static final String BASE_URL  = "http://192.168.43.155:3000/";
+        public static final String BASE_URL  = "http://192.168.1.6:3000/";
         public static Order order = new Order();
         public static int tableId;
     }

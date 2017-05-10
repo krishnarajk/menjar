@@ -2,6 +2,7 @@ package com.example.krishnaraj.menjar;
 
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -45,6 +46,7 @@ public class MenuCategories extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+    TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,11 +55,15 @@ public class MenuCategories extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Food Menu");
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager = (ViewPager) findViewById(R.id.viewpager);
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(mViewPager);
 
         ApiClient.getClient().getCatalogs().enqueue(new Callback< List< Catalog>>(){
 
@@ -85,7 +91,7 @@ public class MenuCategories extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_menu_categories, menu);
+
         return true;
     }
 
@@ -97,8 +103,8 @@ public class MenuCategories extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == android.R.id.home) {
+            finish();
         }
 
         return super.onOptionsItemSelected(item);

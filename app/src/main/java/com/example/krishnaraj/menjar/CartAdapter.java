@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.krishnaraj.menjar.Models.OrderItem;
@@ -19,7 +20,7 @@ import java.util.ArrayList;
 public class CartAdapter extends BaseAdapter {
     ArrayList<OrderItem>orderItems;
     Context context;
-    Button remove,plus,minus;
+    ImageButton remove,plus,minus;
     TextView quant;
     public CartAdapter(ArrayList<OrderItem>orderItems,Context context){
         this.orderItems=orderItems;
@@ -51,9 +52,9 @@ public class CartAdapter extends BaseAdapter {
         name.setText(orderItem.name);
         TextView price = (TextView) view.findViewById(R.id.itemPrice);
         price.setText(orderItem.price+"");
-        plus = (Button) view.findViewById(R.id.plus);
-        minus = (Button) view.findViewById(R.id.minus);
-        remove = (Button) view.findViewById(R.id.remove);
+        plus = (ImageButton) view.findViewById(R.id.plus);
+        minus = (ImageButton) view.findViewById(R.id.minus);
+        remove = (ImageButton) view.findViewById(R.id.remove);
         quant = (TextView) view.findViewById(R.id.quantityCart);
         quant.setText(orderItem.quantity+"");
         plus.setOnClickListener(new View.OnClickListener() {

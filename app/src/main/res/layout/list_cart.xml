@@ -1,67 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:padding="8dp"
+    android:weightSum="12">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_food"/>
 
     <TextView
         android:text="itemname"
+        android:paddingLeft="12dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
-        android:id="@+id/itemName" />
-    <Button
-        android:text="Remove"
+        android:id="@+id/itemName"
+        android:textSize="18sp"
+        android:layout_weight="12"/>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView3"
-        android:layout_alignLeft="@+id/textView3"
-        android:layout_alignStart="@+id/textView3"
-        android:layout_marginTop="45dp"
-        android:layout_marginLeft="30dp"
-        android:id="@+id/remove" />
+        android:orientation="horizontal"
+        android:layout_weight="2"
+        android:gravity="center_vertical"
+        android:weightSum="5">
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/plus"
+            android:src="@drawable/ic_add"
+            android:background="@null"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/quantityCart"
+            android:layout_weight="5"
+            android:gravity="center"
+            android:text="00" />
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_remove"
+            android:background="@null"
+            android:id="@+id/minus" />
+
+    </LinearLayout>
 
     <TextView
         android:text="Price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView3"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="21dp"
+        android:layout_weight="3"
+        android:gravity="center"
         android:id="@+id/itemPrice" />
 
-    <TextView
-        android:layout_width="wrap_content"
+    <ImageButton
+        android:layout_weight="1"
+        android:layout_width="50dp"
+        android:src="@drawable/ic_delete"
+        android:background="@null"
         android:layout_height="wrap_content"
-        android:id="@+id/quantityCart"
-        android:text="00"
-        android:layout_marginLeft="11dp"
-        android:layout_marginStart="11dp"
-        android:layout_alignBaseline="@+id/minus"
-        android:layout_alignBottom="@+id/minus"
-        android:layout_toRightOf="@+id/minus"
-        android:layout_toEndOf="@+id/minus" />
+        android:id="@+id/remove" />
 
-    <Button
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:id="@+id/minus"
-        android:text="-"
-        android:layout_alignBottom="@+id/button"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:id="@+id/plus"
-        android:text="+"
-        android:layout_alignTop="@+id/button"
-        android:layout_toRightOf="@+id/quantityCart"
-        android:layout_toEndOf="@+id/quantityCart"
-        android:layout_marginLeft="30dp"
-        android:layout_marginStart="30dp" />
-</RelativeLayout>
+</LinearLayout>
