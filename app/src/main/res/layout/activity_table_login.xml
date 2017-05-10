@@ -42,7 +42,8 @@
                 android:id="@+id/tableName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Table Name"/>
+                android:hint="Table Name"
+                android:gravity="center"/>
 
         </android.support.design.widget.TextInputLayout>
 
@@ -54,7 +55,10 @@
                 android:id="@+id/pin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Pin"/>
+                android:hint="Pin"
+                android:textSize="25sp"
+                android:gravity="center"
+                android:inputType="numberPassword"/>
 
         </android.support.design.widget.TextInputLayout>
 

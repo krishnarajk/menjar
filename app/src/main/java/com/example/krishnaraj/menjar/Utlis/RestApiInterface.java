@@ -10,6 +10,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 /**
  * Created by krishnaraj on 28/3/17.
@@ -25,4 +26,6 @@ public interface RestApiInterface {
     @POST("/table/login")
     Call<Table>login(@Body Table table);
 
+    @GET("/order/{orderId}")
+    Call<Order> getOrder(@Path("orderId") int orderId);
 }

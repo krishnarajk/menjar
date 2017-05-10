@@ -10,12 +10,12 @@
     android:weightSum="10">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="380dp"
+        android:layout_height="230dp"
         android:scaleType="fitCenter"
         android:adjustViewBounds="true"
         app:srcCompat="@drawable/image1"
-        android:id="@+id/foodimage" />
+        android:id="@+id/foodimagedescription" />
 
     <TextView
         android:padding="16dp"

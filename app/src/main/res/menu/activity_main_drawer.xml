@@ -10,10 +10,7 @@
             android:id="@+id/menuCategories"
             android:icon="@drawable/ic_menu_gallery"
             android:title="Menu Categories" />
-        <item
-            android:id="@+id/recommendations"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Recommendations" />
+
         <item
             android:id="@+id/orders"
             android:icon="@drawable/ic_menu_gallery"
@@ -22,6 +19,10 @@
             android:id="@+id/offers"
             android:icon="@drawable/ic_menu_gallery"
             android:title="Offers" />
+        <item
+            android:id="@+id/yourcart"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Cart" />
     </group>
 
     <item android:title="Communicate">
@@ -36,5 +37,12 @@
                 android:title="Rate Us" />
         </menu>
     </item>
-
+    <item android:title="Admin">
+        <menu>
+            <item
+                android:id="@+id/reset"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Reset" />
+        </menu>
+    </item>
 </menu>

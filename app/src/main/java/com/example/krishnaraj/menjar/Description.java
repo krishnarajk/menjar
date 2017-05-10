@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.krishnaraj.menjar.Models.Catalog;
 import com.example.krishnaraj.menjar.Models.OrderItem;
+import com.squareup.picasso.Picasso;
 
 public class Description extends AppCompatActivity {
     public Catalog catalog;
@@ -28,17 +29,28 @@ public class Description extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         TextView description = (TextView) findViewById(R.id.description);
         description.setText(catalog.description);
-        ImageView img = (ImageView) findViewById(R.id.foodimage);
-
+        ImageView img = (ImageView) findViewById(R.id.foodimagedescription);
+        Log.i("url",Global.BASE_URL+catalog.image);
+        Picasso.with(this).load(Global.BASE_URL+catalog.image).fit().into(img);
         Button addtocart = (Button) findViewById(R.id.addtocart);
         addtocart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 EditText quant = (EditText) findViewById(R.id.quantity);
-                quantity= Integer.parseInt(quant.getText().toString());
-                Global.order.items.add(new OrderItem(catalog.id,quantity,catalog.name,catalog.price));
+                quantity = Integer.parseInt(quant.getText().toString());
+                OrderItem orderItem = null;
+                for (OrderItem item : Global.order.items) {
+                    if(item.id==catalog.id) {
+                        orderItem = item;
+                    }
+                }
+                if(orderItem!=null){
+                    orderItem.quantity += quantity;
+                }else
+                    Global.order.items.add(new OrderItem(catalog.id,quantity,catalog.name,catalog.price,catalog.image));
                 Global.order.amount+=catalog.price*quantity;
                 Global.order.amountTotal+=catalog.price*quantity;
+                Global.amount=Global.order.amountTotal;
                 Global.order.tableId = Global.tableId;
                 startActivity(new Intent(Description.this,Cart.class));
                 Log.i("ab", String.valueOf(Global.order.amount));
@@ -46,6 +58,7 @@ public class Description extends AppCompatActivity {
                 for(int i=0;i<Global.order.items.size();i++){
                     Log.i("abc", String.valueOf(Global.order.items.get(i)));
                 }
+                finish();
             }
         });
     }

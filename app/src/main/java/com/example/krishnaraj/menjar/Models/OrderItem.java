@@ -8,10 +8,12 @@ public class OrderItem {
     public int quantity;
     public String name;
     public float price;
-    public OrderItem(int id,int quantity,String name,float price){
+    public String image;
+    public OrderItem(int id,int quantity,String name,float price,String image){
         this.id = id;
         this.quantity = quantity;
         this.name = name;
         this.price = price;
+        this.image = image;
     }
 }

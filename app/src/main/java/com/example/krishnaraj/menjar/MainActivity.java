@@ -69,14 +69,19 @@ public class MainActivity extends AppCompatActivity
 //            startActivity(new Intent(this,MainActivity.class));
         } else if (id == R.id.menuCategories) {
             startActivity(new Intent(this,MenuCategories.class));
-        } else if (id == R.id.recommendations) {
-            startActivity(new Intent(this,MainActivity.class));
+
         } else if (id == R.id.orders) {
-            startActivity(new Intent(this,Cart.class));
+            startActivity(new Intent(this,YourOrder.class));
         } else if (id == R.id.offers) {
 
         } else if (id == R.id.contact) {
             startActivity(new Intent(this,ContactActivity.class));
+        }
+        else if(id== R.id.yourcart){
+            startActivity(new Intent(this,Cart.class));
+        }
+        else if(id==R.id.reset){
+            startActivity(new Intent(this,Reset.class));
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

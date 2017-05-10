@@ -9,8 +9,10 @@ import java.util.ArrayList;
 public class Order
 {
     public int tableId;
+    public int id;
     public String comments;
     public float amount;
     public float amountTotal;
+    public String status;
     public ArrayList<OrderItem> items = new ArrayList<>();
 }

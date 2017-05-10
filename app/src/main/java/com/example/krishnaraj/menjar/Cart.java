@@ -7,18 +7,22 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.krishnaraj.menjar.Models.Order;
+import com.example.krishnaraj.menjar.Models.OrderItem;
 import com.example.krishnaraj.menjar.Utlis.ApiClient;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Cart extends AppCompatActivity {
+public class Cart extends AppCompatActivity implements CartAdapter.CartUpdateListener{
     Button additem,confirm;
     ListView cartList;
     TextView subTotal;
@@ -33,23 +37,36 @@ public class Cart extends AppCompatActivity {
         cartList = (ListView) findViewById(R.id.cart);
         CartAdapter cartAdapter = new CartAdapter(Global.order.items,this);
         cartList.setAdapter(cartAdapter);
-        subTotal = (TextView) findViewById(R.id.subtotal);
-        subTotal.setText(Global.order.amount+"");
         additem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Cart.this,MenuCategories.class));
+                finish();
             }
         });
+        final EditText comment = (EditText) findViewById(R.id.comments);
+        subTotal = (TextView) findViewById(R.id.subtotal);
+        subTotal.setText("₹"+Global.order.amount);
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Global.order.comments = comment.getText().toString();
                 ApiClient.getClient().order(Global.order).enqueue(new Callback<Order>() {
                     @Override
                     public void onResponse(Call<Order> call, Response<Order> response) {
                         if(response.isSuccessful()){
+                            Global.orderId=response.body().id;
                             Log.i("success","success");
-                            
+                            for(OrderItem orderItem :Global.order.items){
+                                Global.orderItemsGlobal.add(orderItem);
+                                Log.i("x",orderItem.name);
+                            }
+                            Global.order.items.clear();
+                            Toast.makeText(Cart.this,"Order placed successfully",Toast.LENGTH_LONG).show();
+                            Log.i("price", String.valueOf(Global.order.amount));
+                            Global.order.amount=0;
+                            startActivity(new Intent(Cart.this,YourOrder.class));
+                            finish();
                         }
                         else{
                             Log.i("Error","Error");
@@ -61,9 +78,7 @@ public class Cart extends AppCompatActivity {
                         t.printStackTrace();
                     }
                 });
-                Toast.makeText(Cart.this,"Order placed successfully",Toast.LENGTH_LONG).show();
-                Log.i("price", String.valueOf(Global.order.amount));
-                Global.order.amount=0;
+
             }
         });
     }
@@ -81,5 +96,14 @@ public class Cart extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onCartUpdate() {
+        Global.order.amount = 0;
+        for (OrderItem item : Global.order.items) {
+            Global.order.amount+=item.price*item.quantity;
+        }
+        subTotal.setText("₹"+Global.order.amount);
     }
 }
