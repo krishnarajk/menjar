@@ -93,6 +93,10 @@ public class Cart extends AppCompatActivity implements CartAdapter.CartUpdateLis
         rvRecommends = (RecyclerView) findViewById(R.id.recomends);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         rvRecommends.setLayoutManager(layoutManager);
+        refreshRecommended();
+    }
+
+    void refreshRecommended() {
         ApiClient.getClient().getRecommendedItems(Global.order).enqueue(new Callback<List<Catalog>>() {
             @Override
             public void onResponse(Call<List<Catalog>> call, Response<List<Catalog>> response) {
@@ -141,5 +145,6 @@ public class Cart extends AppCompatActivity implements CartAdapter.CartUpdateLis
         Global.order.items.add(new OrderItem(item.id, 1, item.name, item.price, item.image));
         ((CartAdapter) cartList.getAdapter()).notifyDataSetChanged();
         onCartUpdate();
+        refreshRecommended();
     }
 }
